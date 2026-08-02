@@ -432,3 +432,28 @@ textarea{resize:vertical;min-height:110px;}
   display:block;margin-bottom:14px;
 }
 .feature-block.is-hidden{display:none;}
+
+/* Excursion cards (excursions.html — international destinations) */
+.excursion-card{
+  background:var(--white);
+  border-radius:var(--radius-md);
+  overflow:hidden;
+  box-shadow:0 10px 30px -18px rgba(10,46,34,0.25);
+  border:1px solid rgba(10,46,34,0.06);
+  transition:transform .25s ease, box-shadow .25s ease;
+  display:flex;
+  flex-direction:column;
+}
+.excursion-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+.excursion-card .excursion-photo{
+  aspect-ratio:4/3;
+  overflow:hidden;
+}
+.excursion-card .excursion-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.excursion-card:hover .excursion-photo img{transform:scale(1.06);}
+.excursion-card .excursion-body{padding:24px 24px 26px;display:flex;flex-direction:column;flex:1;}
+.excursion-card .excursion-eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:6px;}
+.excursion-card h3{font-size:1.3rem;margin-bottom:8px;}
+.excursion-card p{color:var(--slate);font-size:.92rem;margin-bottom:16px;}
+.excursion-card .tag-row{justify-content:flex-start;margin-top:0;margin-bottom:18px;}
+.excursion-card .btn{margin-top:auto;align-self:flex-start;}
