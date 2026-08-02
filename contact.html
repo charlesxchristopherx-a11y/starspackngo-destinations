@@ -70,114 +70,248 @@
         <input type="hidden" name="_subject" value="New Trip Request — Stars Pack N Go Destinations">
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
-        <div class="form-grid">
-          <div class="form-field">
-            <label for="name">Full Name *</label>
-            <input type="text" id="name" name="name" required placeholder="Jane Traveler">
+        <!-- STEP 1 — YOUR INFO -->
+        <div class="form-section">
+          <div class="form-section-head"><span class="step-num">1</span><h3>Your Info</h3></div>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="name">Full Legal Name *</label>
+              <input type="text" id="name" name="name" required placeholder="Jane Traveler">
+              <span class="hint">As it appears on your government ID — helps me book correctly</span>
+            </div>
+            <div class="form-field">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required placeholder="jane@example.com">
+            </div>
+            <div class="form-field">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required placeholder="(813) 555-0123">
+            </div>
+            <div class="form-field">
+              <label for="contact_pref">Preferred Contact Method</label>
+              <select id="contact_pref" name="preferred_contact">
+                <option value="Call">Phone Call</option>
+                <option value="Text">Text Message</option>
+                <option value="Email">Email</option>
+              </select>
+            </div>
           </div>
-          <div class="form-field">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" name="email" required placeholder="jane@example.com">
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="adults">Number of Adults *</label>
+              <input type="number" id="adults" name="adults" min="1" required placeholder="2">
+            </div>
+            <div class="form-field">
+              <label for="children_ages">Number of Children &amp; Ages</label>
+              <input type="text" id="children_ages" name="children_ages" placeholder="e.g. 2 children, ages 6 and 9">
+            </div>
           </div>
-          <div class="form-field">
-            <label for="phone">Phone Number *</label>
-            <input type="tel" id="phone" name="phone" required placeholder="(813) 555-0123">
-          </div>
-          <div class="form-field">
-            <label for="contact_pref">Preferred Contact Method</label>
-            <select id="contact_pref" name="preferred_contact">
-              <option value="Call">Phone Call</option>
-              <option value="Text">Text Message</option>
-              <option value="Email">Email</option>
+        </div>
+
+        <!-- STEP 2 — TRIP BASICS -->
+        <div class="form-section">
+          <div class="form-section-head"><span class="step-num">2</span><h3>Trip Basics</h3></div>
+
+          <div class="form-field full">
+            <label for="trip_type">What Type of Trip Are You Planning? *</label>
+            <select id="trip_type" name="trip_type" required>
+              <option value="">Select one...</option>
+              <option>Cruise</option>
+              <option>All-Inclusive Resort</option>
+              <option>Group / Family Travel</option>
+              <option>Honeymoon / Anniversary</option>
+              <option>Destination Wedding</option>
+              <option>Quinceañera / Milestone Celebration</option>
+              <option>Land Vacation / Theme Park</option>
+              <option>Not Sure Yet — Need Suggestions</option>
             </select>
           </div>
-        </div>
 
-        <div class="form-grid">
-          <div class="form-field">
-            <label for="adults">Number of Adults *</label>
-            <input type="number" id="adults" name="adults" min="1" required placeholder="2">
+          <div class="form-field full">
+            <label>Purpose of Travel <span class="hint">(check all that apply)</span></label>
+            <div class="checkbox-grid">
+              <label class="checkbox-item"><input type="checkbox" name="purpose[]" value="Leisure / Vacation"> Leisure / Vacation</label>
+              <label class="checkbox-item"><input type="checkbox" name="purpose[]" value="Honeymoon"> Honeymoon</label>
+              <label class="checkbox-item"><input type="checkbox" name="purpose[]" value="Anniversary"> Anniversary</label>
+              <label class="checkbox-item"><input type="checkbox" name="purpose[]" value="Birthday Celebration"> Birthday Celebration</label>
+              <label class="checkbox-item"><input type="checkbox" name="purpose[]" value="Family Reunion"> Family Reunion</label>
+              <label class="checkbox-item"><input type="checkbox" name="purpose[]" value="Business"> Business</label>
+            </div>
           </div>
-          <div class="form-field">
-            <label for="children">Number of Children</label>
-            <input type="number" id="children" name="children" min="0" placeholder="0">
+
+          <div class="form-field full">
+            <label>Destinations You're Interested In * <span class="hint">(check all that apply)</span></label>
+            <div class="checkbox-grid">
+              <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Bahamas"> Bahamas</label>
+              <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Caribbean"> Caribbean</label>
+              <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Mexico"> Mexico</label>
+              <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Florida / Orlando"> Florida / Orlando</label>
+              <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Hawaii"> Hawaii</label>
+              <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Europe"> Europe</label>
+              <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Not sure / open to suggestions"> Not Sure / Open to Suggestions</label>
+              <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Other"> Other (describe below)</label>
+            </div>
+            <div id="dest-warning" style="display:none;color:#9c2b21;font-size:.82rem;margin-top:8px;">Please select at least one destination.</div>
+          </div>
+
+          <div class="form-field full">
+            <label>What's Your Estimated Budget? * <span class="hint">(per person, total trip)</span></label>
+            <div class="budget-range">
+              <label class="budget-chip"><input type="radio" name="budget" value="Under $750" required> Under $750</label>
+              <label class="budget-chip"><input type="radio" name="budget" value="$750 - $1,500"> $750 – $1,500</label>
+              <label class="budget-chip"><input type="radio" name="budget" value="$1,500 - $3,000"> $1,500 – $3,000</label>
+              <label class="budget-chip"><input type="radio" name="budget" value="$3,000 - $5,000"> $3,000 – $5,000</label>
+              <label class="budget-chip"><input type="radio" name="budget" value="$5,000+"> $5,000+</label>
+              <label class="budget-chip"><input type="radio" name="budget" value="Not sure yet"> Not Sure Yet</label>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="travel_start">Travel Start Date</label>
+              <input type="text" id="travel_start" name="travel_start" placeholder="e.g. June 12, 2027, or flexible">
+            </div>
+            <div class="form-field">
+              <label for="travel_end">Travel End Date</label>
+              <input type="text" id="travel_end" name="travel_end" placeholder="e.g. June 19, 2027, or flexible">
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="departure_city">Departure City / Airport</label>
+              <input type="text" id="departure_city" name="departure_city" placeholder="e.g. Tampa, FL (TPA)">
+            </div>
+            <div class="form-field">
+              <label for="passport_expiration">Passport Expiration Date <span class="hint">(if applicable)</span></label>
+              <input type="text" id="passport_expiration" name="passport_expiration" placeholder="e.g. 03/2031, or N/A">
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label>Will Your Trip Include a Flight?</label>
+              <div class="yesno-row">
+                <label class="yesno-chip"><input type="radio" name="includes_flight" value="Yes"> Yes</label>
+                <label class="yesno-chip"><input type="radio" name="includes_flight" value="No"> No</label>
+                <label class="yesno-chip"><input type="radio" name="includes_flight" value="Not sure"> Not Sure</label>
+              </div>
+            </div>
+            <div class="form-field">
+              <label>Do You Have a Valid Passport?</label>
+              <div class="yesno-row">
+                <label class="yesno-chip"><input type="radio" name="valid_passport" value="Yes"> Yes</label>
+                <label class="yesno-chip"><input type="radio" name="valid_passport" value="No"> No</label>
+                <label class="yesno-chip"><input type="radio" name="valid_passport" value="N/A - not needed"> N/A</label>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="form-field full">
-          <label for="trip_type">What Type of Trip Are You Planning? *</label>
-          <select id="trip_type" name="trip_type" required>
-            <option value="">Select one...</option>
-            <option>Cruise</option>
-            <option>All-Inclusive Resort</option>
-            <option>Group / Family Travel</option>
-            <option>Honeymoon / Anniversary</option>
-            <option>Destination Wedding</option>
-            <option>Quinceañera / Milestone Celebration</option>
-            <option>Land Vacation / Theme Park</option>
-            <option>Not Sure Yet — Need Suggestions</option>
-          </select>
-        </div>
+        <!-- STEP 3 — CRUISE PREFERENCES -->
+        <div class="form-section">
+          <div class="form-section-head"><span class="step-num">3</span><h3>Cruise Preferences</h3></div>
+          <p class="form-section-sub">Only relevant if a cruise is on your radar — feel free to skip if not.</p>
 
-        <div class="form-field full">
-          <label>Destinations You're Interested In * <span class="hint">(check all that apply)</span></label>
-          <div class="checkbox-grid">
-            <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Bahamas"> Bahamas</label>
-            <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Caribbean"> Caribbean</label>
-            <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Mexico"> Mexico</label>
-            <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Florida / Orlando"> Florida / Orlando</label>
-            <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Hawaii"> Hawaii</label>
-            <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Europe"> Europe</label>
-            <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Not sure / open to suggestions"> Not Sure / Open to Suggestions</label>
-            <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Other"> Other (describe below)</label>
+          <div class="feature-block">
+            <span class="block-title">Cruise Cabin Features <span class="hint">(check all that interest you)</span></span>
+            <div class="checkbox-grid">
+              <label class="checkbox-item"><input type="checkbox" name="cruise_features[]" value="Cabin (Interior)"> Cabin (Interior)</label>
+              <label class="checkbox-item"><input type="checkbox" name="cruise_features[]" value="Ocean View"> Ocean View</label>
+              <label class="checkbox-item"><input type="checkbox" name="cruise_features[]" value="Balcony"> Balcony</label>
+              <label class="checkbox-item"><input type="checkbox" name="cruise_features[]" value="Suite"> Suite</label>
+            </div>
           </div>
-          <div id="dest-warning" style="display:none;color:#9c2b21;font-size:.82rem;margin-top:8px;">Please select at least one destination.</div>
-        </div>
 
-        <div class="form-field full">
-          <label>What's Your Estimated Budget? * <span class="hint">(per person, total trip)</span></label>
-          <div class="budget-range">
-            <label class="budget-chip"><input type="radio" name="budget" value="Under $750" required> Under $750</label>
-            <label class="budget-chip"><input type="radio" name="budget" value="$750 - $1,500"> $750 – $1,500</label>
-            <label class="budget-chip"><input type="radio" name="budget" value="$1,500 - $3,000"> $1,500 – $3,000</label>
-            <label class="budget-chip"><input type="radio" name="budget" value="$3,000 - $5,000"> $3,000 – $5,000</label>
-            <label class="budget-chip"><input type="radio" name="budget" value="$5,000+"> $5,000+</label>
-            <label class="budget-chip"><input type="radio" name="budget" value="Not sure yet"> Not Sure Yet</label>
+          <div class="form-field full">
+            <label>Adults-Only or Family-Friendly Cruise?</label>
+            <div class="yesno-row">
+              <label class="yesno-chip"><input type="radio" name="cruise_vibe" value="Adults-Only"> Adults-Only</label>
+              <label class="yesno-chip"><input type="radio" name="cruise_vibe" value="Family-Friendly"> Family-Friendly</label>
+              <label class="yesno-chip"><input type="radio" name="cruise_vibe" value="Not applicable"> Not Applicable</label>
+            </div>
           </div>
         </div>
 
-        <div class="form-grid">
-          <div class="form-field">
-            <label for="travel_dates">Preferred Travel Dates</label>
-            <input type="text" id="travel_dates" name="travel_dates" placeholder="e.g. June 2027, or flexible">
+        <!-- STEP 4 — HOTEL & RESORT PREFERENCES -->
+        <div class="form-section">
+          <div class="form-section-head"><span class="step-num">4</span><h3>Hotel &amp; Resort Preferences</h3></div>
+          <p class="form-section-sub">Only relevant if a hotel or resort stay is on your radar — feel free to skip if not.</p>
+
+          <div class="feature-block">
+            <span class="block-title">Hotel &amp; Resort Features <span class="hint">(check all that interest you)</span></span>
+            <div class="checkbox-grid">
+              <label class="checkbox-item"><input type="checkbox" name="hotel_features[]" value="All-Inclusive"> All-Inclusive</label>
+              <label class="checkbox-item"><input type="checkbox" name="hotel_features[]" value="Bungalows"> Bungalows</label>
+              <label class="checkbox-item"><input type="checkbox" name="hotel_features[]" value="Ocean View"> Ocean View</label>
+              <label class="checkbox-item"><input type="checkbox" name="hotel_features[]" value="Garden View"> Garden View</label>
+              <label class="checkbox-item"><input type="checkbox" name="hotel_features[]" value="Swim-Up Suite"> Swim-Up Suite</label>
+              <label class="checkbox-item"><input type="checkbox" name="hotel_features[]" value="Beachfront Villas"> Beachfront Villas</label>
+              <label class="checkbox-item"><input type="checkbox" name="hotel_features[]" value="Accessible Rooms"> Accessible Rooms</label>
+              <label class="checkbox-item"><input type="checkbox" name="hotel_features[]" value="Standard"> Standard</label>
+              <label class="checkbox-item"><input type="checkbox" name="hotel_features[]" value="Connecting Rooms"> Connecting Rooms</label>
+              <label class="checkbox-item"><input type="checkbox" name="hotel_features[]" value="Private Home"> Private Home</label>
+            </div>
           </div>
-          <div class="form-field">
-            <label for="departure_city">Departure City / Airport</label>
-            <input type="text" id="departure_city" name="departure_city" placeholder="e.g. Tampa, FL (TPA)">
+
+          <div class="form-field full">
+            <label>Adults-Only or Family-Friendly Hotel?</label>
+            <div class="yesno-row">
+              <label class="yesno-chip"><input type="radio" name="hotel_vibe" value="Adults-Only"> Adults-Only</label>
+              <label class="yesno-chip"><input type="radio" name="hotel_vibe" value="Family-Friendly"> Family-Friendly</label>
+              <label class="yesno-chip"><input type="radio" name="hotel_vibe" value="Not applicable"> Not Applicable</label>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="rooms_needed">Number of Rooms Needed</label>
+              <input type="number" id="rooms_needed" name="rooms_needed" min="0" placeholder="e.g. 1">
+            </div>
+            <div class="form-field">
+              <label for="hotel_loyalty_program">Hotel Loyalty / Frequent Guest Program <span class="hint">(optional)</span></label>
+              <input type="text" id="hotel_loyalty_program" name="hotel_loyalty_program" placeholder="e.g. Marriott Bonvoy, Hilton Honors">
+            </div>
           </div>
         </div>
 
-        <div class="form-field full">
-          <label for="occasion">Special Occasion? <span class="hint">(optional)</span></label>
-          <input type="text" id="occasion" name="occasion" placeholder="Honeymoon, birthday, anniversary, reunion...">
-        </div>
+        <!-- STEP 5 — TRIP EXTRAS -->
+        <div class="form-section">
+          <div class="form-section-head"><span class="step-num">5</span><h3>Trip Extras</h3></div>
 
-        <div class="form-field full">
-          <label for="notes">Anything Else I Should Know? <span class="hint">(optional)</span></label>
-          <textarea id="notes" name="notes" placeholder="Accessibility needs, dream destinations, must-have amenities, previous trips you loved, etc."></textarea>
-        </div>
+          <div class="form-field full">
+            <label for="occasion">Special Occasion? <span class="hint">(optional)</span></label>
+            <input type="text" id="occasion" name="occasion" placeholder="Honeymoon, birthday, anniversary, reunion...">
+          </div>
 
-        <div class="form-field full">
-          <label for="heard">How Did You Hear About Me? <span class="hint">(optional)</span></label>
-          <select id="heard" name="heard_about">
-            <option value="">Select one...</option>
-            <option>Referral / Word of Mouth</option>
-            <option>Facebook</option>
-            <option>Instagram</option>
-            <option>Google Search</option>
-            <option>Flyer / Ad</option>
-            <option>Other</option>
-          </select>
+          <div class="form-field full">
+            <label>Are You Interested In Travel Insurance? <span class="hint">(protects your trip cost against the unexpected)</span></label>
+            <div class="yesno-row">
+              <label class="yesno-chip"><input type="radio" name="travel_insurance" value="Yes"> Yes</label>
+              <label class="yesno-chip"><input type="radio" name="travel_insurance" value="No"> No</label>
+              <label class="yesno-chip"><input type="radio" name="travel_insurance" value="Tell me more"> Tell Me More</label>
+            </div>
+          </div>
+
+          <div class="form-field full">
+            <label for="notes">Anything Else I Should Know? <span class="hint">(optional)</span></label>
+            <textarea id="notes" name="notes" placeholder="Accessibility needs, dream destinations, must-have amenities, previous trips you loved, etc."></textarea>
+          </div>
+
+          <div class="form-field full">
+            <label for="heard">How Did You Hear About Me? <span class="hint">(optional)</span></label>
+            <select id="heard" name="heard_about">
+              <option value="">Select one...</option>
+              <option>Referral / Word of Mouth</option>
+              <option>Facebook</option>
+              <option>Instagram</option>
+              <option>Google Search</option>
+              <option>Flyer / Ad</option>
+              <option>Other</option>
+            </select>
+          </div>
         </div>
 
         <button type="submit" class="btn btn-gold btn-block">Send My Trip Request</button>

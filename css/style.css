@@ -353,3 +353,82 @@ textarea{resize:vertical;min-height:110px;}
 @media (max-width:900px){
   .bio-wrap, .two-col{gap:36px;}
 }
+
+/* Feature showcase (Cruise vs Hotel split — destinations page) */
+.feature-showcase{
+  background:var(--white);
+  border-radius:var(--radius-lg);
+  box-shadow:0 10px 30px -18px rgba(10,46,34,0.25);
+  border:1px solid rgba(10,46,34,0.08);
+  padding:36px 34px;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+@media (max-width:600px){.feature-showcase{padding:28px 22px;}}
+.feature-showcase .icon{
+  width:56px;height:56px;border-radius:50%;
+  background:var(--emerald-pale);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:18px;color:var(--emerald);
+}
+.feature-showcase h3{font-size:1.45rem;margin-bottom:6px;}
+.feature-showcase > p{color:var(--slate);margin-bottom:20px;}
+.feature-showcase .feature-label{
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);font-weight:700;margin-bottom:10px;
+}
+.feature-pill-group{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;}
+.feature-pill{
+  background:var(--emerald-pale);color:var(--emerald-deep-solid);
+  border:1px solid rgba(14,107,72,0.18);
+  border-radius:999px;padding:7px 15px;font-size:.82rem;font-weight:600;
+}
+.feature-showcase .vibe-note{
+  margin-top:auto;
+  display:flex;align-items:center;gap:10px;
+  background:var(--gold-soft);color:var(--emerald-deep-solid);
+  border-radius:var(--radius-sm);padding:12px 16px;
+  font-size:.85rem;font-weight:600;margin-bottom:20px;
+}
+.feature-showcase .btn{align-self:flex-start;}
+
+/* Form section headers (multi-section questionnaire) */
+.form-section{margin-bottom:36px;}
+.form-section:last-of-type{margin-bottom:0;}
+.form-section-head{
+  display:flex;align-items:baseline;gap:12px;
+  border-bottom:2px solid var(--gold-soft);
+  padding-bottom:10px;margin-bottom:22px;
+}
+.form-section-head h3{
+  font-size:1.15rem;margin:0;color:var(--emerald-deep-solid);white-space:nowrap;
+}
+.form-section-head .step-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border-radius:50%;
+  background:var(--emerald);color:var(--white);
+  font-family:'Playfair Display',serif;font-weight:700;font-size:.85rem;
+  flex-shrink:0;
+}
+.form-section-sub{color:var(--slate);font-size:.85rem;margin:-14px 0 20px;}
+
+/* Yes/No toggle rows (adults-only vs family-friendly, insurance, etc.) */
+.yesno-row{display:flex;flex-wrap:wrap;gap:10px;}
+.yesno-chip{border:1.5px solid #d9d2bd;background:var(--cream);border-radius:999px;padding:9px 18px;font-size:.85rem;cursor:pointer;font-weight:500;}
+.yesno-chip input{display:none;}
+.yesno-chip:has(input:checked){background:var(--emerald);border-color:var(--emerald);color:var(--white);}
+
+/* Conditional feature blocks toggled by JS based on trip-interest selection */
+.feature-block{
+  background:var(--cream);
+  border:1.5px solid #e5dfc9;
+  border-radius:var(--radius-md);
+  padding:22px 22px 6px;
+  margin-bottom:22px;
+}
+.feature-block > label:first-child, .feature-block .block-title{
+  font-weight:700;color:var(--emerald-deep-solid);font-size:.95rem;
+  display:block;margin-bottom:14px;
+}
+.feature-block.is-hidden{display:none;}
