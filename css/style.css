@@ -104,11 +104,13 @@ ul{margin:0;padding:0;list-style:none;}
 .brand .brand-mark{width:40px;height:40px;flex-shrink:0;}
 .brand small{display:block;font-family:'Jost',sans-serif;font-weight:400;letter-spacing:.14em;text-transform:uppercase;font-size:.6rem;color:var(--gold-light);}
 .nav-links{display:flex;align-items:center;gap:28px;}
-.nav-links a{font-size:.92rem;font-weight:500;letter-spacing:.02em;padding:6px 2px;border-bottom:2px solid transparent;transition:border-color .2s, color .2s;}
+.nav-links a{font-size:.92rem;font-weight:500;letter-spacing:.02em;padding:6px 2px;border-bottom:2px solid transparent;transition:border-color .2s, color .2s;display:flex;align-items:center;}
 .nav-links a:hover, .nav-links a.active{border-color:var(--gold);color:var(--gold-light);}
 .nav-cta{margin-left:6px;}
 .nav-call{display:flex;align-items:center;gap:6px;color:var(--gold-light);font-weight:600;font-size:.9rem;}
 .menu-toggle{display:none;background:none;border:none;color:var(--ivory);font-size:1.6rem;cursor:pointer;}
+.nav-icon{display:none;}
+.nav-mobile-extra{display:none;}
 
 @media (max-width:900px){
   .nav-links{
@@ -116,15 +118,31 @@ ul{margin:0;padding:0;list-style:none;}
     background:var(--emerald-deep-solid);
     flex-direction:column;
     align-items:flex-start;
-    padding:28px 28px 100px;
-    gap:22px;
+    padding:28px 28px 110px;
+    gap:20px;
     transform:translateX(100%);
     transition:transform .3s ease;
     overflow-y:auto;
   }
   .nav-links.open{transform:translateX(0);}
-  .nav-links a{font-size:1.15rem;}
+  .nav-links a{font-size:1.15rem;width:100%;}
+  .nav-icon{display:inline-block;margin-right:12px;font-size:1.1rem;}
   .menu-toggle{display:block;}
+  .nav-call{display:none;}
+  .nav-mobile-extra{
+    display:flex;flex-direction:column;gap:16px;
+    width:100%;margin-top:6px;padding-top:24px;
+    border-top:1px solid rgba(255,255,255,0.15);
+  }
+  .nav-mobile-extra .nav-mobile-email{color:var(--gold-soft);font-size:.92rem;font-weight:500;}
+  .nav-mobile-extra .social-row{margin-top:2px;}
+  .nav-mobile-extra .social-row a{
+    width:40px;height:40px;border-radius:50%;
+    background:rgba(255,255,255,0.08);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--gold-soft);font-weight:600;
+  }
+  .nav-mobile-extra .social-row a:hover{background:var(--gold);color:var(--emerald-deep-solid);}
 }
 
 /* Hero */
@@ -144,17 +162,6 @@ ul{margin:0;padding:0;list-style:none;}
 .hero-badges{display:flex;gap:22px;margin-top:40px;flex-wrap:wrap;}
 .hero-badge{display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--ivory);}
 .hero-badge svg{width:22px;height:22px;flex-shrink:0;color:var(--gold-light);}
-
-/* Promo strip */
-.promo-strip{
-  background:linear-gradient(90deg,var(--emerald-deep-solid),var(--emerald));
-  color:var(--gold-soft);
-  padding:14px 0;
-  overflow:hidden;
-  white-space:nowrap;
-}
-.promo-strip .container{display:flex;align-items:center;gap:14px;white-space:normal;flex-wrap:wrap;justify-content:center;text-align:center;}
-.promo-strip strong{color:var(--gold-light);}
 
 /* Cards grid */
 .grid{display:grid;gap:28px;}
@@ -309,6 +316,11 @@ textarea{resize:vertical;min-height:110px;}
 .footer-col a, .footer-col p{display:block;color:var(--gold-soft);font-size:.92rem;margin-bottom:10px;opacity:.9;}
 .footer-col a:hover{color:var(--gold-light);}
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.12);margin-top:40px;padding-top:22px;font-size:.8rem;color:rgba(246,236,201,0.65);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.footer-textnav{text-align:center;margin-top:22px;font-size:.8rem;}
+.footer-textnav a{color:rgba(246,236,201,0.75);}
+.footer-textnav a:hover{color:var(--gold-light);}
+.footer-textnav .sep{color:rgba(246,236,201,0.3);margin:0 10px;}
+@media (max-width:600px){.footer-textnav .sep{margin:0 6px;}}
 .social-row{display:flex;gap:12px;margin-top:10px;}
 .social-row a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;}
 .social-row a:hover{background:var(--gold);color:var(--emerald-deep-solid);}
