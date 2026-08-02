@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan My Trip | Stars Pack N Go Destinations</title>
+<meta name="description" content="Tell Shana Star Nunez about your dream trip and get a free, personalized travel quote — cruises, resorts, group travel and more.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <img src="images/logo.svg" alt="Stars Pack N Go Destinations logo" class="brand-mark">
+      <span>Stars Pack N Go<small>Destinations</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Shana</a>
+      <a href="destinations.html">Destinations &amp; Services</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="contact.html" class="active">Plan My Trip</a>
+      <span class="nav-call">📞 <a href="tel:+18135078119">813.507.8119</a></span>
+    </nav>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">Plan My Trip</div>
+    <h1>Let's Plan Your Perfect Getaway</h1>
+    <p>Fill out the questionnaire below and I'll follow up with a free, personalized quote — usually within 24 hours.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:820px;">
+
+    <div class="grid grid-2" style="margin-bottom:40px;">
+      <a href="tel:+18135078119" class="service-card" style="text-align:center;">
+        <div class="icon" style="margin:0 auto 14px;">📞</div>
+        <h3>Call or Text</h3>
+        <p>813.507.8119</p>
+      </a>
+      <a href="mailto:Starspackngodestinations3@gmail.com" class="service-card" style="text-align:center;">
+        <div class="icon" style="margin:0 auto 14px;">✉️</div>
+        <h3>Email</h3>
+        <p>Starspackngodestinations3@gmail.com</p>
+      </a>
+    </div>
+
+    <div class="form-wrap">
+      <div class="form-success">🎉 Thank you! Your trip request has been sent. Shana will be in touch soon — usually within 24 hours. In a hurry? Call or text 813.507.8119.</div>
+      <div class="form-error">Something went wrong sending your request. Please try again, or reach out directly at 813.507.8119 or Starspackngodestinations3@gmail.com.</div>
+
+      <!--
+        FORM SETUP INSTRUCTIONS (remove this comment once configured):
+        1. Create a free account at https://formspree.io
+        2. Create a new form and connect it to Starspackngodestinations3@gmail.com
+        3. Copy the Form ID Formspree gives you (looks like "abcdwxyz")
+        4. Replace YOUR_FORM_ID below in the form's "action" attribute with that ID
+        Example: action="https://formspree.io/f/abcdwxyz"
+      -->
+      <form id="inquiry-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="hidden" name="_subject" value="New Trip Request — Stars Pack N Go Destinations">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required placeholder="Jane Traveler">
+          </div>
+          <div class="form-field">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required placeholder="jane@example.com">
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" required placeholder="(813) 555-0123">
+          </div>
+          <div class="form-field">
+            <label for="contact_pref">Preferred Contact Method</label>
+            <select id="contact_pref" name="preferred_contact">
+              <option value="Call">Phone Call</option>
+              <option value="Text">Text Message</option>
+              <option value="Email">Email</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="adults">Number of Adults *</label>
+            <input type="number" id="adults" name="adults" min="1" required placeholder="2">
+          </div>
+          <div class="form-field">
+            <label for="children">Number of Children</label>
+            <input type="number" id="children" name="children" min="0" placeholder="0">
+          </div>
+        </div>
+
+        <div class="form-field full">
+          <label for="trip_type">What Type of Trip Are You Planning? *</label>
+          <select id="trip_type" name="trip_type" required>
+            <option value="">Select one...</option>
+            <option>Cruise</option>
+            <option>All-Inclusive Resort</option>
+            <option>Group / Family Travel</option>
+            <option>Honeymoon / Anniversary</option>
+            <option>Destination Wedding</option>
+            <option>Quinceañera / Milestone Celebration</option>
+            <option>Land Vacation / Theme Park</option>
+            <option>Not Sure Yet — Need Suggestions</option>
+          </select>
+        </div>
+
+        <div class="form-field full">
+          <label>Destinations You're Interested In * <span class="hint">(check all that apply)</span></label>
+          <div class="checkbox-grid">
+            <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Bahamas"> Bahamas</label>
+            <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Caribbean"> Caribbean</label>
+            <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Mexico"> Mexico</label>
+            <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Florida / Orlando"> Florida / Orlando</label>
+            <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Hawaii"> Hawaii</label>
+            <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Europe"> Europe</label>
+            <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Not sure / open to suggestions"> Not Sure / Open to Suggestions</label>
+            <label class="checkbox-item"><input type="checkbox" name="destinations[]" value="Other"> Other (describe below)</label>
+          </div>
+          <div id="dest-warning" style="display:none;color:#9c2b21;font-size:.82rem;margin-top:8px;">Please select at least one destination.</div>
+        </div>
+
+        <div class="form-field full">
+          <label>What's Your Estimated Budget? * <span class="hint">(per person, total trip)</span></label>
+          <div class="budget-range">
+            <label class="budget-chip"><input type="radio" name="budget" value="Under $750" required> Under $750</label>
+            <label class="budget-chip"><input type="radio" name="budget" value="$750 - $1,500"> $750 – $1,500</label>
+            <label class="budget-chip"><input type="radio" name="budget" value="$1,500 - $3,000"> $1,500 – $3,000</label>
+            <label class="budget-chip"><input type="radio" name="budget" value="$3,000 - $5,000"> $3,000 – $5,000</label>
+            <label class="budget-chip"><input type="radio" name="budget" value="$5,000+"> $5,000+</label>
+            <label class="budget-chip"><input type="radio" name="budget" value="Not sure yet"> Not Sure Yet</label>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="travel_dates">Preferred Travel Dates</label>
+            <input type="text" id="travel_dates" name="travel_dates" placeholder="e.g. June 2027, or flexible">
+          </div>
+          <div class="form-field">
+            <label for="departure_city">Departure City / Airport</label>
+            <input type="text" id="departure_city" name="departure_city" placeholder="e.g. Tampa, FL (TPA)">
+          </div>
+        </div>
+
+        <div class="form-field full">
+          <label for="occasion">Special Occasion? <span class="hint">(optional)</span></label>
+          <input type="text" id="occasion" name="occasion" placeholder="Honeymoon, birthday, anniversary, reunion...">
+        </div>
+
+        <div class="form-field full">
+          <label for="notes">Anything Else I Should Know? <span class="hint">(optional)</span></label>
+          <textarea id="notes" name="notes" placeholder="Accessibility needs, dream destinations, must-have amenities, previous trips you loved, etc."></textarea>
+        </div>
+
+        <div class="form-field full">
+          <label for="heard">How Did You Hear About Me? <span class="hint">(optional)</span></label>
+          <select id="heard" name="heard_about">
+            <option value="">Select one...</option>
+            <option>Referral / Word of Mouth</option>
+            <option>Facebook</option>
+            <option>Instagram</option>
+            <option>Google Search</option>
+            <option>Flyer / Ad</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-gold btn-block">Send My Trip Request</button>
+        <p class="form-note">By submitting, you agree to be contacted by Shana Star Nunez / Stars Pack N Go Destinations by phone, text, or email about your trip request. No spam, ever.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <div class="footer-brand"><img src="images/logo.svg" alt="logo" style="width:34px;height:34px;border-radius:50%;"> Stars Pack N Go Destinations</div>
+      <p>Licensed Florida travel agent and Accredited Cruise Counselor helping travelers unwind, explore, and create memories — one unforgettable trip at a time.</p>
+      <div class="social-row">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">ig</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Shana</a>
+      <a href="destinations.html">Destinations &amp; Services</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="contact.html">Plan My Trip</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get In Touch</h4>
+      <a href="tel:+18135078119">📞 813.507.8119</a>
+      <a href="mailto:Starspackngodestinations3@gmail.com">✉️ Starspackngodestinations3@gmail.com</a>
+      <p>Based in Florida · Serving clients nationwide</p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> Stars Pack N Go Destinations. All rights reserved.</span>
+    <span>Florida Seller of Travel · Accredited Cruise Counselor</span>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
