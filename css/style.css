@@ -517,3 +517,27 @@ textarea{resize:vertical;min-height:110px;}
 .excursion-card p{color:var(--slate);font-size:.92rem;margin-bottom:16px;}
 .excursion-card .tag-row{justify-content:flex-start;margin-top:0;margin-bottom:18px;}
 .excursion-card .btn{margin-top:auto;align-self:flex-start;}
+
+/* Excursion TYPE cards (excursions.html — categories by activity, above the destinations grid) */
+.excursion-type-card{
+  background:var(--white);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  box-shadow:0 10px 30px -18px rgba(10,46,34,0.25);
+  border:1px solid rgba(10,46,34,0.06);
+  display:flex;
+  flex-direction:column;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.excursion-type-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+.excursion-type-card .excursion-type-photo{aspect-ratio:16/9;overflow:hidden;}
+.excursion-type-card .excursion-type-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.excursion-type-card:hover .excursion-type-photo img{transform:scale(1.06);}
+.excursion-type-card .excursion-type-body{padding:28px 28px 30px;display:flex;flex-direction:column;flex:1;}
+.excursion-type-card h3{font-size:1.35rem;margin-bottom:14px;}
+.excursion-type-list{list-style:none;margin:0 0 22px;padding:0;display:flex;flex-direction:column;gap:12px;}
+.excursion-type-list li{padding-left:18px;position:relative;color:var(--slate);font-size:.92rem;line-height:1.5;}
+.excursion-type-list li::before{content:'';position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:var(--gold);}
+.excursion-type-list strong{display:block;color:var(--emerald-deep-solid);font-weight:700;}
+.excursion-type-card .btn{margin-top:auto;align-self:flex-start;}
+@media (max-width:600px){.excursion-type-card .excursion-type-body{padding:22px 20px 26px;}}
