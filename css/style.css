@@ -92,13 +92,13 @@ ul{margin:0;padding:0;list-style:none;}
 /* Header */
 .site-header{
   position:sticky;top:0;z-index:1000;
-  background:rgba(10,46,34,0.96);
-  backdrop-filter:blur(6px);
+  background:rgba(10,46,34,0.97);
   color:var(--ivory);
 }
 .header-inner{
   display:flex;align-items:center;justify-content:space-between;
   padding:14px 24px;max-width:var(--maxw);margin:0 auto;
+  position:relative;
 }
 .brand{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;color:var(--ivory);}
 .brand .brand-mark{width:40px;height:40px;flex-shrink:0;}
@@ -108,27 +108,40 @@ ul{margin:0;padding:0;list-style:none;}
 .nav-links a:hover, .nav-links a.active{border-color:var(--gold);color:var(--gold-light);}
 .nav-cta{margin-left:6px;}
 .nav-call{display:flex;align-items:center;gap:6px;color:var(--gold-light);font-weight:600;font-size:.9rem;}
-.menu-toggle{display:none;background:none;border:none;color:var(--ivory);font-size:1.6rem;cursor:pointer;}
+.menu-toggle{display:none;background:none;border:none;color:var(--ivory);font-size:1.6rem;cursor:pointer;position:relative;z-index:1200;}
 .nav-icon{display:none;}
 .nav-mobile-extra{display:none;}
+.nav-panel-brand{display:none;}
 
 @media (max-width:900px){
+  /* Full-screen menu overlay — fades in and covers the entire viewport
+     (no side-sliding), independent of the header so it can never be
+     clipped by an ancestor's stacking context. */
   .nav-links{
-    position:fixed;top:68px;left:0;right:0;bottom:0;
+    position:fixed;inset:0;
+    z-index:1100;
     background:var(--emerald-deep-solid);
     flex-direction:column;
     align-items:flex-start;
-    padding:28px 28px 110px;
-    gap:20px;
-    transform:translateX(100%);
-    transition:transform .3s ease;
+    padding:90px 28px 110px;
+    gap:18px;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .22s ease;
     overflow-y:auto;
   }
-  .nav-links.open{transform:translateX(0);}
-  .nav-links a{font-size:1.15rem;width:100%;}
-  .nav-icon{display:inline-block;margin-right:12px;font-size:1.1rem;}
+  .nav-links.open{opacity:1;visibility:visible;pointer-events:auto;}
+  .nav-links a{font-size:1.2rem;width:100%;}
+  .nav-icon{display:inline-block;margin-right:12px;font-size:1.15rem;}
   .menu-toggle{display:block;}
   .nav-call{display:none;}
+  .nav-panel-brand{
+    display:flex;align-items:center;gap:10px;
+    position:absolute;top:20px;left:28px;
+    font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:var(--ivory);
+  }
+  .nav-panel-brand img{width:34px;height:34px;}
   .nav-mobile-extra{
     display:flex;flex-direction:column;gap:16px;
     width:100%;margin-top:6px;padding-top:24px;
@@ -144,6 +157,41 @@ ul{margin:0;padding:0;list-style:none;}
   }
   .nav-mobile-extra .social-row a:hover{background:var(--gold);color:var(--emerald-deep-solid);}
 }
+
+/* Persistent desktop call-to-action (mirrors the mobile floating bar) */
+.desktop-fab{
+  display:none;
+}
+@media (min-width:901px){
+  .desktop-fab{
+    display:flex;flex-direction:column;gap:10px;
+    position:fixed;right:24px;bottom:24px;z-index:900;
+  }
+  .desktop-fab a{
+    display:flex;align-items:center;gap:8px;
+    padding:13px 20px;border-radius:999px;
+    font-weight:700;font-size:.88rem;
+    box-shadow:0 14px 28px -10px rgba(10,46,34,0.4);
+    transition:transform .2s ease;
+  }
+  .desktop-fab a:hover{transform:translateY(-2px);}
+  .desktop-fab .fab-call{background:var(--emerald-deep-solid);color:var(--gold-soft);}
+  .desktop-fab .fab-plan{background:linear-gradient(135deg,var(--gold-light),var(--gold));color:var(--emerald-deep-solid);}
+}
+
+/* Mid-page CTA banner */
+.cta-banner{
+  background:linear-gradient(135deg,var(--gold-soft),var(--gold-light));
+  padding:40px 0;
+}
+.cta-banner .container{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;flex-wrap:wrap;
+}
+.cta-banner h3{color:var(--emerald-deep-solid);margin-bottom:4px;font-size:1.35rem;}
+.cta-banner p{color:var(--emerald-deep-solid);opacity:.85;margin-bottom:0;font-size:.95rem;}
+.cta-banner .cta-banner-actions{display:flex;gap:12px;flex-wrap:wrap;}
+@media (max-width:700px){.cta-banner .container{text-align:center;justify-content:center;}}
 
 /* Hero */
 .hero{
