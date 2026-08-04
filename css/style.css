@@ -88,6 +88,18 @@ ul{margin:0;padding:0;list-style:none;}
 .btn-emerald{background:var(--emerald);color:var(--white);}
 .btn-emerald:hover{background:var(--emerald-light);}
 .btn-block{width:100%;justify-content:center;}
+.btn-sm{padding:10px 22px;font-size:.85rem;}
+
+/* Self-service booking CTAs (InteleTravel portal) */
+.cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.cta-or{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;opacity:.65;align-self:center;}
+.cta-note{margin-top:16px;font-size:.85rem;opacity:.85;max-width:460px;margin-left:auto;margin-right:auto;}
+.cta-note a{color:inherit;text-decoration:underline;text-underline-offset:2px;}
+.hero-secondary-link{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:.9rem;font-weight:600;color:var(--ivory);text-decoration:underline;text-underline-offset:3px;opacity:.9;transition:opacity .2s ease;}
+.hero-secondary-link:hover{opacity:1;}
+.book-portal-card{position:relative;}
+.service-card.book-portal-card{border:2px dashed var(--gold);background:rgba(201,162,39,0.06);}
+.book-portal-card .badge-self{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--emerald-deep-solid);font-size:.65rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 12px;border-radius:999px;white-space:nowrap;}
 
 /* Header */
 .site-header{
