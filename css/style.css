@@ -281,6 +281,16 @@ ul{margin:0;padding:0;list-style:none;}
 /* About / bio */
 .bio-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center;}
 @media (max-width:850px){.bio-wrap{grid-template-columns:1fr;}}
+.bio-photo-col{display:flex;flex-direction:column;gap:16px;}
+.bio-photo-col .ribbon{
+  align-self:flex-start;
+  background:var(--gold);
+  color:var(--emerald-deep-solid);
+  font-weight:700;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:9px 20px;
+  border-radius:999px;
+  box-shadow:0 8px 16px -6px rgba(0,0,0,.35);
+}
 .bio-photo{
   border-radius:var(--radius-lg);
   overflow:hidden;
@@ -289,15 +299,6 @@ ul{margin:0;padding:0;list-style:none;}
   aspect-ratio:4/5;
 }
 .bio-photo img{width:100%;height:100%;object-fit:cover;}
-.bio-photo .ribbon{
-  position:absolute;top:18px;left:-8px;
-  background:var(--gold);
-  color:var(--emerald-deep-solid);
-  font-weight:700;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;
-  padding:8px 18px 8px 22px;
-  border-radius:0 6px 6px 0;
-  box-shadow:0 8px 16px -6px rgba(0,0,0,.35);
-}
 .credential-list{display:flex;flex-direction:column;gap:14px;margin-top:24px;}
 .credential-item{display:flex;gap:14px;align-items:flex-start;}
 .credential-item .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);margin-top:7px;flex-shrink:0;}
