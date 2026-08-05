@@ -101,6 +101,29 @@ ul{margin:0;padding:0;list-style:none;}
 .service-card.book-portal-card{border:2px dashed var(--gold);background:rgba(201,162,39,0.06);}
 .book-portal-card .badge-self{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--emerald-deep-solid);font-size:.65rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 12px;border-radius:999px;white-space:nowrap;}
 
+/* Pay Now panel (trip authorization / card payment) */
+.pay-now-panel{
+  display:flex;gap:22px;align-items:flex-start;
+  background:linear-gradient(135deg, rgba(10,46,34,0.05), rgba(201,162,39,0.09));
+  border:1px solid rgba(201,162,39,0.4);
+  border-radius:var(--radius-lg);
+  padding:28px;
+  margin-bottom:40px;
+}
+.pay-now-icon{
+  font-size:1.6rem;flex-shrink:0;line-height:1;
+  width:52px;height:52px;border-radius:50%;
+  background:var(--gold);color:var(--emerald-deep-solid);
+  display:flex;align-items:center;justify-content:center;
+}
+.pay-now-body h3{font-size:1.15rem;margin-bottom:8px;}
+.pay-now-body p{color:var(--slate);margin-bottom:18px;font-size:.95rem;}
+@media (max-width:600px){
+  .pay-now-panel{flex-direction:column;text-align:center;padding:24px;}
+  .pay-now-icon{margin:0 auto;}
+  .pay-now-panel .btn{width:100%;justify-content:center;}
+}
+
 /* Header */
 .site-header{
   position:sticky;top:0;z-index:1000;
