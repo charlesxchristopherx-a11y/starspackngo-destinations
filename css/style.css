@@ -376,6 +376,24 @@ textarea{resize:vertical;min-height:110px;}
 .form-success{background:var(--emerald-pale);color:var(--emerald-deep-solid);border:1px solid var(--emerald);}
 .form-error{background:#fdeceb;color:#9c2b21;border:1px solid #e39990;}
 
+/* Trip Authorization / secure payment form */
+.security-notice{display:flex;gap:16px;align-items:flex-start;background:var(--emerald-pale);border:1px solid rgba(14,107,72,0.25);border-radius:var(--radius-md);padding:20px 22px;margin-bottom:32px;}
+.security-notice .icon{font-size:1.4rem;flex-shrink:0;line-height:1;}
+.security-notice h3{font-size:1rem;margin-bottom:6px;color:var(--emerald-deep-solid);}
+.security-notice p{font-size:.88rem;color:var(--slate);margin-bottom:0;}
+.no-cvv-note{display:flex;gap:10px;align-items:flex-start;background:var(--cream);border:1.5px dashed #d9d2bd;border-radius:var(--radius-sm);padding:14px 16px;margin-top:-6px;margin-bottom:24px;font-size:.85rem;color:var(--slate);}
+.no-cvv-note strong{color:var(--emerald-deep-solid);}
+.consent-box{background:var(--cream);border:1.5px solid #d9d2bd;border-radius:var(--radius-md);padding:18px 20px;margin-bottom:24px;}
+.consent-box label{display:flex;gap:12px;align-items:flex-start;font-size:.88rem;color:var(--emerald-deep-solid);font-weight:500;cursor:pointer;}
+.consent-box input[type=checkbox]{width:19px;height:19px;flex-shrink:0;margin-top:2px;accent-color:var(--emerald);}
+.sig-pad-wrap{margin-bottom:8px;}
+.sig-pad-canvas{width:100%;height:180px;display:block;background:var(--white);border:1.5px solid #d9d2bd;border-radius:var(--radius-sm);touch-action:none;cursor:crosshair;}
+.sig-pad-canvas.signed{border-color:var(--emerald);}
+.sig-pad-controls{display:flex;justify-content:space-between;align-items:center;margin-top:8px;}
+.sig-pad-clear{background:none;border:none;color:var(--emerald);font-weight:600;font-size:.82rem;cursor:pointer;text-decoration:underline;text-underline-offset:2px;padding:4px 0;}
+.sig-pad-hint{font-size:.78rem;color:var(--slate);}
+.sig-warning{display:none;color:#9c2b21;font-size:.82rem;margin-top:8px;}
+
 /* Floating CTA (mobile) */
 .floating-cta{
   position:fixed;bottom:18px;left:16px;right:16px;z-index:900;

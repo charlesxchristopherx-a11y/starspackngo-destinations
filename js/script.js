@@ -123,6 +123,155 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Signature pad (used on trip-authorization.html)
+  var sigCanvas = document.getElementById('sigPad');
+  if (sigCanvas) {
+    var ctx = sigCanvas.getContext('2d');
+    var drawing = false;
+    var hasSignature = false;
+    var sigDataInput = document.getElementById('signatureData');
+    var sigWarning = document.getElementById('sigWarning');
+
+    // Scale canvas for crisp lines on high-DPI screens while keeping the
+    // element's CSS size responsive.
+    function resizeCanvas() {
+      var ratio = window.devicePixelRatio || 1;
+      var rect = sigCanvas.getBoundingClientRect();
+      sigCanvas.width = rect.width * ratio;
+      sigCanvas.height = rect.height * ratio;
+      ctx.scale(ratio, ratio);
+      ctx.lineWidth = 2.4;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.strokeStyle = '#0a2e22';
+    }
+    resizeCanvas();
+
+    function getPos(e) {
+      var rect = sigCanvas.getBoundingClientRect();
+      var point = e.touches ? e.touches[0] : e;
+      return { x: point.clientX - rect.left, y: point.clientY - rect.top };
+    }
+    function start(e) {
+      e.preventDefault();
+      drawing = true;
+      hasSignature = true;
+      sigCanvas.classList.add('signed');
+      if (sigWarning) sigWarning.style.display = 'none';
+      var pos = getPos(e);
+      ctx.beginPath();
+      ctx.moveTo(pos.x, pos.y);
+    }
+    function move(e) {
+      if (!drawing) return;
+      e.preventDefault();
+      var pos = getPos(e);
+      ctx.lineTo(pos.x, pos.y);
+      ctx.stroke();
+    }
+    function end() { drawing = false; }
+
+    sigCanvas.addEventListener('mousedown', start);
+    sigCanvas.addEventListener('mousemove', move);
+    window.addEventListener('mouseup', end);
+    sigCanvas.addEventListener('touchstart', start, { passive: false });
+    sigCanvas.addEventListener('touchmove', move, { passive: false });
+    sigCanvas.addEventListener('touchend', end);
+
+    var clearBtn = document.getElementById('sigClear');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', function () {
+        ctx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
+        hasSignature = false;
+        sigCanvas.classList.remove('signed');
+        if (sigDataInput) sigDataInput.value = '';
+      });
+    }
+
+    // Expose a check used by the trip-auth-form submit handler below
+    sigCanvas._hasSignature = function () { return hasSignature; };
+    sigCanvas._getDataURL = function () { return sigCanvas.toDataURL('image/png'); };
+  }
+
+  // Trip Payment Authorization form handling (Formspree AJAX + signature capture)
+  var taForm = document.getElementById('trip-auth-form');
+  if (taForm) {
+    var taSuccessBox = document.querySelector('.form-success');
+    var taErrorBox = document.querySelector('.form-error');
+    var submittedAtInput = document.getElementById('submitted_at');
+    var taSigWarning = document.getElementById('sigWarning');
+
+    taForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (taSuccessBox) taSuccessBox.style.display = 'none';
+      if (taErrorBox) taErrorBox.style.display = 'none';
+
+      // Require a drawn signature in addition to the typed name
+      if (sigCanvas && !sigCanvas._hasSignature()) {
+        if (taSigWarning) taSigWarning.style.display = 'block';
+        sigCanvas.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      if (submittedAtInput) submittedAtInput.value = new Date().toString();
+
+      var taSubmitBtn = taForm.querySelector('button[type="submit"]');
+      var taOriginalText = taSubmitBtn ? taSubmitBtn.textContent : '';
+      if (taSubmitBtn) {
+        taSubmitBtn.disabled = true;
+        taSubmitBtn.textContent = 'Submitting…';
+      }
+
+      var taData = new FormData(taForm);
+
+      // Attach the signature as an actual image file so it shows up in the
+      // notification email, in addition to the hidden base64 field.
+      if (sigCanvas) {
+        var dataUrl = sigCanvas._getDataURL();
+        var byteString = atob(dataUrl.split(',')[1]);
+        var arrayBuffer = new Uint8Array(byteString.length);
+        for (var i = 0; i < byteString.length; i++) arrayBuffer[i] = byteString.charCodeAt(i);
+        var sigBlob = new Blob([arrayBuffer], { type: 'image/png' });
+        taData.append('signature_file', sigBlob, 'signature.png');
+      }
+
+      fetch(taForm.action, {
+        method: 'POST',
+        body: taData,
+        headers: { Accept: 'application/json' }
+      })
+        .then(function (response) {
+          if (response.ok) {
+            window.location.href = 'trip-authorization-confirmation.html';
+          } else {
+            response.json().then(function (data) {
+              if (taErrorBox) {
+                taErrorBox.style.display = 'block';
+                if (data && data.errors) {
+                  taErrorBox.textContent =
+                    'Hmm, something needs attention: ' +
+                    data.errors.map(function (err) { return err.message; }).join(', ');
+                }
+                taErrorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }
+            });
+          }
+        })
+        .catch(function () {
+          if (taErrorBox) {
+            taErrorBox.style.display = 'block';
+            taErrorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        })
+        .finally(function () {
+          if (taSubmitBtn) {
+            taSubmitBtn.disabled = false;
+            taSubmitBtn.textContent = taOriginalText;
+          }
+        });
+    });
+  }
+
   // Highlight active nav link based on current page
   var current = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a').forEach(function (link) {
