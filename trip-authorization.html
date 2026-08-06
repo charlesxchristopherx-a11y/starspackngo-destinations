@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trip Payment Authorization | Stars Pack N Go Destinations</title>
-<meta name="description" content="Securely submit your trip payment authorization and e-signature to Shana Star Nunez, independent Florida travel agent.">
+<title>Pay Now | Stars Pack N Go Destinations</title>
+<meta name="description" content="Securely submit your trip payment authorization to Shana Star Nunez, independent Florida travel agent.">
 <meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url=https://www.cognitoforms.com/WeTakingOver1/StarsPackNGoDestinationsTravelCreditCardAuthorization">
 <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<script>window.location.replace("https://www.cognitoforms.com/WeTakingOver1/StarsPackNGoDestinationsTravelCreditCardAuthorization");</script>
 </head>
 <body>
 
@@ -19,235 +21,24 @@
       <img src="images/logo.svg" alt="Stars Pack N Go Destinations logo" class="brand-mark">
       <span>Stars Pack N Go<small>Destinations</small></span>
     </a>
-        <nav class="nav-links" id="navLinks">
-      <div class="nav-panel-brand"><img src="images/logo.svg" alt="Stars Pack N Go Destinations logo">Stars Pack N Go Destinations</div>
-            <a href="index.html"><span class="nav-icon">🏠</span>Home</a>
-      <a href="about.html"><span class="nav-icon">👤</span>About Shana Star</a>
-      <a href="destinations.html"><span class="nav-icon">🌎</span>Services</a>
-      <a href="excursions.html"><span class="nav-icon">✈️</span>Excursions</a>
-      <a href="international-destinations.html"><span class="nav-icon">🌍</span>Top Spots</a>
-      <a href="blog.html"><span class="nav-icon">📰</span>Blog</a>
-      <a href="testimonials.html"><span class="nav-icon">💬</span>Testimonials</a>
-      <a href="contact.html"><span class="nav-icon">📝</span>Plan My Trip</a>
-      <div class="nav-mobile-extra">
-        <a href="tel:+18135078119" class="btn btn-gold btn-block">📞 Call / Text 813.507.8119</a>
-        <a href="mailto:Starspackngodestinations3@gmail.com" class="nav-mobile-email">✉️ Starspackngodestinations3@gmail.com</a>
-        <div class="social-row">
-          <a href="#" aria-label="Facebook">f</a>
-          <a href="#" aria-label="Instagram">ig</a>
-        </div>
-      </div>
-    </nav>
     <span class="nav-call">📞 <a href="tel:+18135078119">813.507.8119</a></span>
-    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
   </div>
 </header>
 
-<section class="page-hero">
-  <div class="container">
-    <div class="breadcrumb">Trip Payment Authorization</div>
-    <h1>Trip Payment Authorization</h1>
-    <p>For clients who've already planned their trip with me and are ready to submit payment details for booking.</p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container" style="max-width:760px;">
-
-    <div class="security-notice">
-      <span class="icon">🔒</span>
-      <div>
-        <h3>How this works</h3>
-        <p>This form sends your information securely and directly to my business email. I personally submit it to your cruise line, resort, or vendor to complete your booking — it is never processed automatically, stored in a payment system, or shared beyond what's needed to book your trip. I'll follow up to confirm once it's been processed.</p>
-      </div>
-    </div>
-
-    <div class="form-wrap">
-      <div class="form-success">🎉 Thank you! Your payment authorization has been submitted securely. Redirecting you to your confirmation page...</div>
-      <div class="form-error">Something went wrong submitting your authorization. Please try again, or reach out directly at 813.507.8119 or Starspackngodestinations3@gmail.com so I can take your information over the phone instead.</div>
-
-      <!--
-        FORM SETUP INSTRUCTIONS (remove this comment once configured):
-        1. In your Formspree account, create a second form (or reuse one) connected
-           to Starspackngodestinations3@gmail.com.
-        2. Copy the Form ID Formspree gives you (looks like "abcdwxyz").
-        3. Replace YOUR_TRIP_AUTH_FORM_ID below in the form's "action" attribute.
-        Example: action="https://formspree.io/f/abcdwxyz"
-      -->
-      <form id="trip-auth-form" action="https://formspree.io/f/YOUR_TRIP_AUTH_FORM_ID" method="POST">
-        <input type="hidden" name="_subject" value="🔴 New Trip Payment Authorization — Stars Pack N Go Destinations">
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-        <input type="hidden" name="submitted_at" id="submitted_at">
-
-        <!-- STEP 1 — TRAVELER INFO -->
-        <div class="form-section">
-          <div class="form-section-head"><span class="step-num">1</span><h3>Traveler Info</h3></div>
-          <div class="form-grid">
-            <div class="form-field">
-              <label for="ta_name">Full Legal Name *</label>
-              <input type="text" id="ta_name" name="traveler_name" required placeholder="Jane Traveler">
-            </div>
-            <div class="form-field">
-              <label for="ta_email">Email Address *</label>
-              <input type="email" id="ta_email" name="email" required placeholder="jane@example.com">
-            </div>
-            <div class="form-field">
-              <label for="ta_phone">Phone Number *</label>
-              <input type="tel" id="ta_phone" name="phone" required placeholder="(813) 555-0123">
-            </div>
-          </div>
-        </div>
-
-        <!-- STEP 2 — TRIP / VENDOR DETAILS -->
-        <div class="form-section">
-          <div class="form-section-head"><span class="step-num">2</span><h3>Trip &amp; Vendor Details</h3></div>
-          <div class="form-grid">
-            <div class="form-field">
-              <label for="ta_vendor">Cruise Line / Resort / Vendor Name *</label>
-              <input type="text" id="ta_vendor" name="vendor_name" required placeholder="e.g. Royal Caribbean">
-            </div>
-            <div class="form-field">
-              <label for="ta_conf">Confirmation / Reservation # <span class="hint">(if known)</span></label>
-              <input type="text" id="ta_conf" name="confirmation_number" placeholder="e.g. RCCL482910">
-            </div>
-            <div class="form-field">
-              <label for="ta_amount">Total Amount to Be Charged *</label>
-              <input type="text" id="ta_amount" name="charge_amount" required placeholder="e.g. $1,240.00">
-            </div>
-            <div class="form-field">
-              <label for="ta_dates">Travel Date(s)</label>
-              <input type="text" id="ta_dates" name="travel_dates" placeholder="e.g. June 12–19, 2027">
-            </div>
-          </div>
-        </div>
-
-        <!-- STEP 3 — BILLING ADDRESS -->
-        <div class="form-section">
-          <div class="form-section-head"><span class="step-num">3</span><h3>Billing Address</h3></div>
-          <div class="form-field full">
-            <label for="ta_street">Street Address *</label>
-            <input type="text" id="ta_street" name="billing_street" required placeholder="123 Main St">
-          </div>
-          <div class="form-grid">
-            <div class="form-field">
-              <label for="ta_city">City *</label>
-              <input type="text" id="ta_city" name="billing_city" required placeholder="Tampa">
-            </div>
-            <div class="form-field">
-              <label for="ta_state">State *</label>
-              <input type="text" id="ta_state" name="billing_state" required placeholder="FL">
-            </div>
-            <div class="form-field">
-              <label for="ta_zip">ZIP Code *</label>
-              <input type="text" id="ta_zip" name="billing_zip" required placeholder="33601">
-            </div>
-          </div>
-        </div>
-
-        <!-- STEP 4 — CARD INFORMATION -->
-        <div class="form-section">
-          <div class="form-section-head"><span class="step-num">4</span><h3>Card Information</h3></div>
-          <div class="form-grid">
-            <div class="form-field">
-              <label for="ta_cardtype">Card Type *</label>
-              <select id="ta_cardtype" name="card_type" required>
-                <option value="">Select one...</option>
-                <option>Visa</option>
-                <option>Mastercard</option>
-                <option>American Express</option>
-                <option>Discover</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="ta_cardnum">Card Number *</label>
-              <input type="text" id="ta_cardnum" name="card_number" required inputmode="numeric" autocomplete="cc-number" placeholder="•••• •••• •••• ••••">
-            </div>
-            <div class="form-field">
-              <label for="ta_exp">Expiration Date (MM/YY) *</label>
-              <input type="text" id="ta_exp" name="card_expiration" required inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY">
-            </div>
-            <div class="form-field">
-              <label for="ta_cardholder">Name on Card <span class="hint">(if different from above)</span></label>
-              <input type="text" id="ta_cardholder" name="cardholder_name" placeholder="Optional">
-            </div>
-          </div>
-          <div class="no-cvv-note">🛡️ <span><strong>You'll notice there's no security code (CVV) field.</strong> This form intentionally does not collect it — that matches how manually-submitted vendor authorizations are handled, and keeps your card safer in transit.</span></div>
-        </div>
-
-        <!-- STEP 5 — AUTHORIZATION & SIGNATURE -->
-        <div class="form-section">
-          <div class="form-section-head"><span class="step-num">5</span><h3>Authorization &amp; Signature</h3></div>
-
-          <div class="consent-box">
-            <label>
-              <input type="checkbox" name="consent_given" value="Yes" required id="ta_consent">
-              <span>I authorize Stars Pack N Go Destinations to collect this payment information on my behalf and submit it directly to the vendor named above to complete this booking. I understand my card will be charged by the vendor, that this authorization serves as my electronic signature, and that Shana Star Nunez will contact me to confirm once it has been processed.</span>
-            </label>
-          </div>
-
-          <div class="form-field full">
-            <label>Sign Below *</label>
-            <div class="sig-pad-wrap">
-              <canvas id="sigPad" class="sig-pad-canvas" width="600" height="180"></canvas>
-              <div class="sig-pad-controls">
-                <span class="sig-pad-hint">Draw your signature with your finger or mouse</span>
-                <button type="button" class="sig-pad-clear" id="sigClear">Clear</button>
-              </div>
-              <div class="sig-warning" id="sigWarning">Please sign above before submitting.</div>
-            </div>
-            <input type="hidden" name="signature_image" id="signatureData">
-          </div>
-
-          <div class="form-field full">
-            <label for="ta_typedname">Type Your Full Legal Name to Confirm Signature *</label>
-            <input type="text" id="ta_typedname" name="typed_signature_name" required placeholder="Jane Traveler">
-          </div>
-        </div>
-
-        <button type="submit" class="btn btn-gold btn-block">Submit Payment Authorization</button>
-        <p class="form-note">Your submission is timestamped and includes your IP address as part of your electronic signature record, the same way a signed document would be verified. By submitting, you agree to be contacted by Shana Star Nunez / Stars Pack N Go Destinations about this booking.</p>
-      </form>
-    </div>
+<section class="section" style="min-height:50vh;display:flex;align-items:center;">
+  <div class="container" style="max-width:560px;text-align:center;">
+    <div style="font-size:2.6rem;margin-bottom:8px;">💳</div>
+    <h1 style="margin-bottom:16px;">Taking You To Secure Payment...</h1>
+    <p style="color:var(--slate);margin-bottom:28px;">If you're not redirected automatically in a moment, tap the button below to open the secure Travel Credit Card Authorization form.</p>
+    <a href="https://www.cognitoforms.com/WeTakingOver1/StarsPackNGoDestinationsTravelCreditCardAuthorization" class="btn btn-gold">💳 Continue to Secure Payment Form</a>
   </div>
 </section>
 
 <footer class="site-footer">
-  <div class="container footer-grid">
-    <div class="footer-col">
-      <div class="footer-brand"><img src="images/logo.svg" alt="logo" style="width:34px;height:34px;border-radius:50%;"> Stars Pack N Go Destinations</div>
-      <p>Independent Florida travel agent helping travelers unwind, explore, and create memories — one unforgettable trip at a time.</p>
-      <div class="social-row">
-        <a href="#" aria-label="Facebook">f</a>
-        <a href="#" aria-label="Instagram">ig</a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h4>Explore</h4>
-            <a href="index.html">Home</a>
-      <a href="about.html">About Shana Star</a>
-      <a href="destinations.html">Destinations &amp; Services</a>
-      <a href="excursions.html">Excursions</a>
-      <a href="international-destinations.html">Top Destinations</a>
-      <a href="blog.html">Blog</a>
-      <a href="testimonials.html">Testimonials</a>
-      <a href="contact.html">Plan My Trip</a>
-    </div>
-    <div class="footer-col">
-      <h4>Get In Touch</h4>
-      <a href="tel:+18135078119">📞 813.507.8119</a>
-      <a href="mailto:Starspackngodestinations3@gmail.com">✉️ Starspackngodestinations3@gmail.com</a>
-      <a href="https://starspackngodestinations.inteletravel.com/" target="_blank" rel="noopener">🧳 Book Now Online</a>
-      <a href="trip-authorization.html">💳 Pay Now</a>
-      <p>Based in Florida · Serving clients nationwide</p>
-    </div>
-  </div>
   <div class="container footer-bottom">
     <span>© <span id="year"></span> Stars Pack N Go Destinations. All rights reserved.</span>
     <span>Independent Florida Travel Agent</span>
   </div>
-  <nav class="footer-textnav" aria-label="Footer navigation">
-    <a href="index.html">Home</a><span class="sep">·</span><a href="about.html">About Shana Star</a><span class="sep">·</span><a href="destinations.html">Destinations &amp; Services</a><span class="sep">·</span><a href="excursions.html">Excursions</a><span class="sep">·</span><a href="international-destinations.html">Top Destinations</a><span class="sep">·</span><a href="blog.html">Blog</a><span class="sep">·</span><a href="testimonials.html">Testimonials</a><span class="sep">·</span><a href="contact.html">Plan My Trip</a>
-  </nav>
 </footer>
 
 <script src="js/script.js"></script>
